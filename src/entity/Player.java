@@ -51,14 +51,14 @@ public class Player extends Entity{
     {
         try
         {
-            up1= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_up_1.png"));
-            up2= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_up_2.png"));
-            down1= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_down_1.png"));
-            down2= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_down_2.png"));
-            left1= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_left_1.png"));
-            left2= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_left_2.png"));
-            right1= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_right_1.png"));
-            right2= ImageIO.read(getClass ().getResourceAsStream("/Player/boy_right_2.png"));
+            up1= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_up_1.png"));
+            up2= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_up_2.png"));
+            down1= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_down_1.png"));
+            down2= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_down_2.png"));
+            left1= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_left_1.png"));
+            left2= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_left_2.png"));
+            right1= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_right_1.png"));
+            right2= ImageIO.read(getClass ().getResourceAsStream("/Resource/Player/boy_right_2.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -123,6 +123,7 @@ public class Player extends Entity{
           {
               case "Key":
                   hasKey++;
+                  gp.playSE(1);
                   gp.obj[i]=null;
                   System.out.println("Key :" + hasKey);
                   break;
@@ -130,9 +131,16 @@ public class Player extends Entity{
               case "Door":
                   if(hasKey > 0)
                   {
+                      gp.playSE(3);
                       gp.obj[i]=null;
                       hasKey--;
                   }
+                  break;
+
+              case "Boots":
+                  gp.playSE(2);
+                  speed+=2;
+                  gp.obj[i]=null;
                   break;
 
 
