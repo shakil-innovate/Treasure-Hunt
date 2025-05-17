@@ -12,5 +12,7 @@ public class Entity {
     public int spiteCounter=0;
     public int spiteNum=1;
     public Rectangle solidArea;
+    public int solidAreaDefaultX;
+    public int solidAreaDefaultY;
     public boolean collisionOn= false;
 }
