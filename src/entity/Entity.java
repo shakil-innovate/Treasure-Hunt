@@ -3,7 +3,7 @@ package entity;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Entity {           //base class     ---abstract class
+public abstract class Entity {           //base class     ---abstract class
 
     public int worldX,worldY;
     public int speed;
