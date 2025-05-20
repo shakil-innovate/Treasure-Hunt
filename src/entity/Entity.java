@@ -16,6 +16,8 @@ public class Entity {           //base class     ---abstract class
     public int solidAreaDefaultY;
     public boolean collisionOn= false;
 
+    public static int player_no=0;
+
     public void spiteChange(int num)       //setter
     {
         spiteNum=num;
@@ -24,9 +26,5 @@ public class Entity {           //base class     ---abstract class
     {
          return spiteNum;
     }
-    public void setDefaultValue()
-    {
 
-
-    }
 }
