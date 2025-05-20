@@ -3,16 +3,29 @@ package entity;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Entity {
+public class Entity {           //base class
 
     public int worldX,worldY;
     public int speed;
     public BufferedImage up1,up2,down1,down2,left1,left2,right1,right2;
     public String direction;
     public int spiteCounter=0;
-    public int spiteNum=1;
+    private int spiteNum=1;                       //encapculation
     public Rectangle solidArea;
     public int solidAreaDefaultX;
     public int solidAreaDefaultY;
     public boolean collisionOn= false;
+
+    public void spiteChange(int num)       //setter
+    {
+        spiteNum=num;
+    }
+    public int  getSpite()            //getter
+    {
+         return spiteNum;
+    }
+    public void setDefaultValue()
+    {
+
+    }
 }
