@@ -9,12 +9,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-public class Player extends Entity{
+public class Player extends Entity{                   //inheritance
 
     GamePanel gp;
     KeyHandler keyH;
 
-    public final int screenX;
+    public final int screenX;        //final keyword use
     public final int screenY;
     public int hasKey=0;
 
