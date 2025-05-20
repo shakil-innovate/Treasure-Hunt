@@ -4,6 +4,7 @@ import main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +12,7 @@ import java.io.InputStreamReader;
 
 
 public class TileManager {
+
 
     GamePanel gp;
     public Tile[] tile;
@@ -59,7 +61,7 @@ public class TileManager {
         }
     }
 
-    public void loadMap(String filePath)
+    public void loadMap(String filePath)         //overiding
     {
         try
         {
