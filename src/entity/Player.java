@@ -104,10 +104,10 @@ public class Player extends Entity{
 
             spiteCounter++;
             if (spiteCounter > 12) {
-                if (spiteNum == 1)
-                    spiteNum = 2;
-                else if (spiteNum == 2)
-                    spiteNum = 1;
+                if (getSpite() == 1)
+                    spiteChange(2);
+                else if (getSpite() == 2)
+                    spiteChange(1);
                 spiteCounter = 0;
             }
          }
@@ -166,30 +166,30 @@ public class Player extends Entity{
         switch (direction)
         {
             case "up" :
-                if(spiteNum==1)
+                if(getSpite()==1)               //encapsulation    getter
                   image=up1;
-                else if(spiteNum==2)
+                else if(getSpite()==2)        //getter
                     image=up2;
                 break;
 
             case "down":
-                if(spiteNum==1)
+                if(getSpite()==1)        //getter
                     image=down1;
-                else if(spiteNum==2)
+                else if(getSpite()==2)    //geter
                     image=down2;
                 break;
 
             case "left":
-                if(spiteNum==1)
+                if(getSpite()==1)       //getter
                     image=left1;
-                else if(spiteNum==2)
+                else if(getSpite()==2)  //getter
                     image=left2;
                 break;
 
             case "right":
-                if(spiteNum==1)
+                if(getSpite()==1)      //getter
                      image=right1;
-                else if(spiteNum==2)
+                else if(getSpite()==2)   //getter
                     image=right2;
                 break;
         }
