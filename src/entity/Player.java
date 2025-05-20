@@ -30,7 +30,7 @@ public class Player extends Entity{
         solidArea=new Rectangle();
         solidArea.x=11;
         solidArea.y=16;
-        solidArea.width=26;
+        solidArea.width=26;             //total player Rectage 48*48
         solidArea.height=20;
         solidAreaDefaultX=solidArea.x;
         solidAreaDefaultY=solidArea.y;
@@ -39,7 +39,7 @@ public class Player extends Entity{
         setDefaultValue();
         getPlayerImage();
     }
-    public void setDefaultValue()
+    public void setDefaultValue()               //player Initial Position
     {
         worldX=gp.tileSize *23;
         worldY=gp.tileSize * 21;

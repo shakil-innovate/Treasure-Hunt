@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements Runnable
 
 
     //FPS
-    int FPS=60;
+    int FPS=60;                            //per seocond 60 time update
     TileManager tileM=new TileManager(this);
     KeyHandler keyH= new KeyHandler();
 
@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable
     public CollisionChecker cChecker=new CollisionChecker(this);
     public AssetSetter aSetter=new AssetSetter(this);
     public UI ui=new UI(this);
-    Thread gamethread;
+    Thread gamethread;          //will run the game loop
 
     //Entity and object
     public Player player=new Player(this , keyH);
@@ -50,25 +50,25 @@ public class GamePanel extends JPanel implements Runnable
     {
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
         this.setBackground(Color.black);
-        this.setDoubleBuffered(true);
-        this.addKeyListener(keyH);
+        this.setDoubleBuffered(true);         //help reduce flicering
+        this.addKeyListener(keyH);             //capture input
         this.setFocusable(true);
     }
 
     public void setupGame()
     {
-        aSetter.setObject();
-        playMusic(0);
+        aSetter.setObject();         //place object
+        playMusic(0);              //background music
     }
 
-    public void startGameThread()
+    public void startGameThread()       //implement runnable
     {
         gamethread = new Thread(this);
         gamethread.start();
     }
 
     @Override
-    public void run() {
+    public void run() {               //core game loop
         double drawInterval = 1000000000/FPS;
         double nextDrawTime=System.nanoTime()+ drawInterval;
         while(gamethread != null)
@@ -101,7 +101,7 @@ public class GamePanel extends JPanel implements Runnable
        player.update();
     }
 
-    public void paintComponent(Graphics g)
+    public void paintComponent(Graphics g)         //automatically call by GUI
     {
         super.paintComponent(g);
         Graphics2D g2=(Graphics2D) g ;
@@ -118,8 +118,8 @@ public class GamePanel extends JPanel implements Runnable
         }
 
         //player
-        player.draw(g2);
-        ui.draw(g2);
+        player.draw(g2);              //player character
+        ui.draw(g2);                   //draw ui
         g2.dispose();
     }
 

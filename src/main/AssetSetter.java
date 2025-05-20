@@ -46,5 +46,13 @@ public class AssetSetter {
         gp.obj[7]=new OBJ_Boots();
         gp.obj[7].worldX=37 * gp.tileSize;
         gp.obj[7].worldY=42 * gp.tileSize;
+
+//        gp.obj[8]=new OBJ_Key();
+//        gp.obj[8].worldX=27* gp.tileSize;
+//        gp.obj[8].worldY=21*gp.tileSize;
+//
+        gp.obj[9]=new OBJ_Door();
+        gp.obj[9].worldX=11* gp.tileSize;
+         gp.obj[9].worldY=34* gp.tileSize;
     }
 }
