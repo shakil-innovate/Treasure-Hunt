@@ -1,3 +1,5 @@
+
+
 package main;
 
 
@@ -10,30 +12,31 @@ public class Sound {
     Clip clip;
     URL soundURL[]=new URL[30];
 
-   public Sound()
+    public Sound()
     {
-         soundURL[0]=getClass().getResource("/Resource/Sound/BlueBoyAdventure.wav");
+        soundURL[0]=getClass().getResource("/Resource/Sound/BlueBoyAdventure.wav");
         soundURL[1]=getClass().getResource("/Resource/Sound/coin.wav");
         soundURL[2]=getClass().getResource("/Resource/Sound/powerup.wav");
         soundURL[3]=getClass().getResource("/Resource/Sound/unlock.wav");
         soundURL[4]=getClass().getResource("/Resource/Sound/fanfare.wav");
+        soundURL[5]=getClass().getResource("/Resource/Sound/homepage.wav");
     }
 
     public void setFile(int i)
     {
-      try
-      {
-          AudioInputStream ais= AudioSystem.getAudioInputStream(soundURL[i]);
-          clip=AudioSystem.getClip();
-          clip.open(ais);
-      }catch (Exception e)
-      {
-        e.printStackTrace();
-      }
+        try
+        {
+            AudioInputStream ais= AudioSystem.getAudioInputStream(soundURL[i]);
+            clip=AudioSystem.getClip();
+            clip.open(ais);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     public void play()
     {
-       clip.start();
+        clip.start();
     }
     public void loop()
     {
