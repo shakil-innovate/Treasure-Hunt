@@ -1,3 +1,4 @@
+
 package entity;
 
 import main.GamePanel;
@@ -9,12 +10,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-public class Player extends Entity{                   //inheritance
+public class Player extends Entity{
 
     GamePanel gp;
     KeyHandler keyH;
 
-    public final int screenX;        //final keyword use
+    public final int screenX;
     public final int screenY;
     public int hasKey=0;
 
@@ -30,7 +31,7 @@ public class Player extends Entity{                   //inheritance
         solidArea=new Rectangle();
         solidArea.x=11;
         solidArea.y=16;
-        solidArea.width=26;
+        solidArea.width=26;             //total player Rectage 48*48
         solidArea.height=20;
         solidAreaDefaultX=solidArea.x;
         solidAreaDefaultY=solidArea.y;
@@ -39,7 +40,7 @@ public class Player extends Entity{                   //inheritance
         setDefaultValue();
         getPlayerImage();
     }
-    public void setDefaultValue()
+    public void setDefaultValue()               //player Initial Position
     {
         worldX=gp.tileSize *23;
         worldY=gp.tileSize * 21;
@@ -104,92 +105,92 @@ public class Player extends Entity{                   //inheritance
 
             spiteCounter++;
             if (spiteCounter > 12) {
-                if (getSpite() == 1)
-                    spiteChange(2);
-                else if (getSpite() == 2)
-                    spiteChange(1);
+                if (spiteNum == 1)
+                    spiteNum = 2;
+                else if (spiteNum == 2)
+                    spiteNum = 1;
                 spiteCounter = 0;
             }
-         }
+        }
     }
 
     public void pickUpObject(int i)
     {
-      if(i!=999)
-      {
-          String objectName=gp.obj[i].name;
+        if(i!=999)
+        {
+            String objectName=gp.obj[i].name;
 
-          switch(objectName)
-          {
-              case "Key":
-                  hasKey++;
-                  gp.playSE(1);
-                  gp.obj[i]=null;
-                  gp.ui.showMessage("You got a key!");
-                  break;
+            switch(objectName)
+            {
+                case "Key":
+                    hasKey++;
+                    gp.playSE(1);
+                    gp.obj[i]=null;
+                    gp.ui.showMessage("You got a key!");
+                    break;
 
-              case "Door":
-                  if(hasKey > 0)
-                  {
-                      gp.ui.showMessage("You opened the Door!");
-                      gp.playSE(3);
-                      gp.obj[i]=null;
-                      hasKey--;
-                  }
-                  else gp.ui.showMessage("You need a Key!");
-                  break;
+                case "Door":
+                    if(hasKey > 0)
+                    {
+                        gp.ui.showMessage("You opened the Door!");
+                        gp.playSE(3);
+                        gp.obj[i]=null;
+                        hasKey--;
+                    }
+                    else gp.ui.showMessage("You need a Key!");
+                    break;
 
-              case "Boots":
-                  gp.ui.showMessage("Speed Up!");
-                  gp.playSE(2);
-                  speed+=1;
-                  gp.obj[i]=null;
-                  break;
+                case "Boots":
+                    gp.ui.showMessage("Speed Up!");
+                    gp.playSE(2);
+                    speed+=1;
+                    gp.obj[i]=null;
+                    break;
 
-              case "Chest":
-                  gp.ui.gameFinished=true;
-                  gp.stopMusic();
-                  gp.playSE(4);
-                break;
+                case "Chest":
+                    gp.ui.gameFinished=true;
+                    gp.stopMusic();
+                    gp.playSE(4);
+                    break;
 
 
-          }
+            }
 
-      }
+        }
     }
     public void draw(Graphics2D g2)
     {
-       // g2.setColor(Color.white);
-       // g2.fillRect(x,y,gp.tileSize,gp.tileSize);
+        // g2.setColor(Color.white);
+        // g2.fillRect(x,y,gp.tileSize,gp.tileSize);
         BufferedImage image =null;
 
         switch (direction)
         {
             case "up" :
-                if(getSpite()==1)               //encapsulation    getter
-                  image=up1;
-                else if(getSpite()==2)        //getter
+                if(spiteNum==1)
+                    image=up1;
+                else if(spiteNum==2)
                     image=up2;
                 break;
 
             case "down":
-                if(getSpite()==1)        //getter
+                if(spiteNum==1)
                     image=down1;
-                else if(getSpite()==2)    //geter
+                else if(spiteNum==2)
                     image=down2;
                 break;
 
             case "left":
-                if(getSpite()==1)       //getter
+                if(spiteNum==1)
                     image=left1;
-                else if(getSpite()==2)  //getter
+                else if(spiteNum==2)
                     image=left2;
                 break;
 
             case "right":
-                if(getSpite()==1)      //getter
-                     image=right1;
-                else if(getSpite()==2)   //getter
+                if(spiteNum==1)
+                    image=right1;
+                else if(spiteNum==2)
                     image=right2;
                 break;
         }
